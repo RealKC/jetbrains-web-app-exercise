@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Exercise blog</title>
+</head>
+<body>
+    <form method="post" enctype="multipart/form-data">
+        <fieldset>
+            <legend>Post content</legend>
+
+            <label>
+                Write your text here:
+                <br>
+                <textarea name="body"></textarea>
+            </label>
+
+            <br>
+
+            <label>
+                Image:
+                <input name="image" type="file" accept="image/png"/>
+            </label>
+        </fieldset>
+
+        <fieldset>
+            <legend>User information</legend>
+
+            <label>
+                User name:
+                <input name="user_name" type="text" />
+            </label>
+
+            <br>
+
+            <label>
+                Avatar URL:
+                <input name="avatar" type="url" />
+            </label>
+        </fieldset>
+
+        <button type="submit">Publish blog post</button>
+    </form>
+
+    {{ BLOGS }}
+</body>
+</html>
