@@ -7,7 +7,10 @@ edition = "2021"
 
 [dependencies]
 axum = { version = "0.7.7", features = ["multipart"] }
+base64 = "0.22.1"
+jiff = "0.1.13"
 tokio = { version = "1.40.0", features = ["full"] }
 tracing = "0.1"
 tracing-subscriber = { version = "0.3", features = ["env-filter"] }
 reqwest = "0.12.8"
+sqlx = { version = "0.8.2", features = ["sqlite", "runtime-tokio"] }

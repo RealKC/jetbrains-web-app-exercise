@@ -1,0 +1,12 @@
+{
+  "db_name": "SQLite",
+  "query": "\nINSERT INTO posts(body, image, publish_date, user_name, avatar)\nVALUES\n(?, ?, ?, ?, ?);",
+  "describe": {
+    "columns": [],
+    "parameters": {
+      "Right": 5
+    },
+    "nullable": []
+  },
+  "hash": "1c03b2123b84fc741cd1a66d0858b2915f43e3abdbda8048e01aaccd9b9a260a"
+}
