@@ -28,7 +28,7 @@ async fn main() {
     let app = Router::new().route("/home", get(home).post(submit_new_blog))
         .with_state(pool);
 
-    let listener = tokio::net::TcpListener::bind("127.0.0.1:3000")
+    let listener = tokio::net::TcpListener::bind("0.0.0.0:3000")
         .await
         .unwrap();
     tracing::debug!("listening on {}", listener.local_addr().unwrap());
