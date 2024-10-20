@@ -115,7 +115,7 @@ async fn home(State(pool): State<SqlitePool>) -> Html<String> {
 "#,
                     body = post.body,
                     name = post.user_name,
-                    on=jiff::Timestamp::from_millisecond(post.publish_date).unwrap().to_string(),
+                    on = jiff::Timestamp::from_millisecond(post.publish_date).unwrap().to_string(),
             )
         })
         .collect();
@@ -136,7 +136,11 @@ async fn submit_new_blog(State(pool): State<SqlitePool>, input: Multipart) -> Re
     else {
         return Redirect::to("/home");
     };
-    let avatar_image_data = reqwest::get(data.avatar_url).await.unwrap().bytes().await.map(bytes_to_vec).unwrap();
+    let avatar_image_data = if data.avatar_url.is_empty() {
+        None
+    } else {
+        reqwest::get(data.avatar_url).await.unwrap().bytes().await.map(bytes_to_vec).unwrap()
+    };
     let blog_image = data.image.map(bytes_to_vec).flatten();
 
     let now = Zoned::now().timestamp().as_millisecond();
